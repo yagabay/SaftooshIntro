@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.vismus.saftooshintro.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/txv_title_sign_in"
+            android:text="Sign-In"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:textSize="25dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:background="@drawable/rounded_edit_text"
+            android:padding="5dip"
+            android:hint="Email"
+            android:layout_below="@id/txv_title_sign_in"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:textSize="25dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:background="@drawable/rounded_edit_text"
+            android:padding="5dip"
+            android:hint="Password"
+            android:layout_below="@id/edt_email"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="SIGN IN"
+            android:layout_below="@id/edt_password"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btn_create_new_account"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="CREATE ACCOUNT"
+            android:layout_below="@id/btn_sign_in"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context="com.vismus.saftooshintro.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/txv_title_sign_up"
+            android:text="Sign-Up"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:textSize="25dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:background="@drawable/rounded_edit_text"
+            android:padding="5dip"
+            android:hint="Email"
+            android:layout_below="@id/txv_title_sign_up"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:textSize="25dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_below="@id/edt_email"
+            android:layout_marginTop="20dp"
+            android:hint="Password"/>
+
+        <TextView
+            android:id="@+id/txv_title_security_code"
+            android:text="Security Code"
+            android:textSize="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_password"
+            android:layout_centerHorizontal="true"
+            android:padding="5dip"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/edt_security_code"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:layout_below="@id/txv_title_security_code"
+            android:background="@drawable/rounded_edit_text"
+            android:padding="5dip"
+            android:inputType="number"
+            android:maxLength="5"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:text="SIGN UP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_security_code"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btn_already_have_account"
+            android:text="ALREADY HAVE ACCOUNT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_sign_up"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
