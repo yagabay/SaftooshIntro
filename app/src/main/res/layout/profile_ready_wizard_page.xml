@@ -6,9 +6,14 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Gallery"
+        android:id="@+id/txv_title_sign_up"
+        android:text="You're ready!"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>
+

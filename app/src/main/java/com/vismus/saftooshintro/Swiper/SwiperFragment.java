@@ -14,9 +14,11 @@ public class SwiperFragment extends Fragment{
 
     SwiperViewPager _viewPager;
     SwiperViewPagerAdapter _viewPagerAdapter;
-    Listener _listener;
+
     boolean _swipeCalled;
     boolean _viewPagerDrawn;
+
+    Listener _listener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

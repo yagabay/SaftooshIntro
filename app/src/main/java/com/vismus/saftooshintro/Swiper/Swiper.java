@@ -3,8 +3,6 @@ package com.vismus.saftooshintro.Swiper;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-
 
 public class Swiper implements SwiperFragment.Listener{
 
@@ -12,9 +10,8 @@ public class Swiper implements SwiperFragment.Listener{
     Listener _listener;
 
     public Swiper(Context context, int frameLayoutId, Fragment origFragment, Fragment destFragment){
-        FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
         _swiperFragment = new SwiperFragment();
-        fragmentManager
+        ((FragmentActivity) context).getSupportFragmentManager()
                 .beginTransaction()
                 .remove(origFragment)
                 .replace(frameLayoutId, _swiperFragment)
@@ -32,10 +29,6 @@ public class Swiper implements SwiperFragment.Listener{
 
     public void swipe(){
         _swiperFragment.swipe();
-    }
-
-    public void setListener(Listener listener){
-        _listener = listener;
     }
 
     /* inner classes */
