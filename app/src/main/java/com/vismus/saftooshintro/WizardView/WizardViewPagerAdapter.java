@@ -8,7 +8,7 @@ import java.util.List;
 
 class WizardViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    List<WizardPage> _items;
+    List<WizardView.WizardPage> _items;
 
     public WizardViewPagerAdapter(FragmentManager fragmentManager){
         super(fragmentManager);
@@ -16,7 +16,7 @@ class WizardViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public WizardPage getItem(int position) {
+    public WizardView.WizardPage getItem(int position) {
         return _items.get(position);
     }
 
@@ -25,7 +25,7 @@ class WizardViewPagerAdapter extends FragmentStatePagerAdapter {
         return _items.size();
     }
 
-    public void setItems(List<WizardPage> items){
+    public void setItems(List<WizardView.WizardPage> items){
         _items = items;
     }
 

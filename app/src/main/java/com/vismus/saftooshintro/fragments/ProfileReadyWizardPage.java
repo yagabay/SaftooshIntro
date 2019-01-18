@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vismus.saftooshintro.R;
-import com.vismus.saftooshintro.WizardView.WizardPage;
+import com.vismus.saftooshintro.WizardView.WizardView;
 
-public class ProfileReadyWizardPage extends WizardPage {
+public class ProfileReadyWizardPage extends WizardView.WizardPage {
 
 
     @Override

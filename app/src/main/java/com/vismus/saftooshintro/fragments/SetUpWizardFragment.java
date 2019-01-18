@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vismus.saftooshintro.R;
-import com.vismus.saftooshintro.WizardView.WizardPage;
 import com.vismus.saftooshintro.WizardView.WizardView;
 
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class SetUpWizardFragment extends Fragment implements WizardView.Listener
         }
     }
 
-    public WizardPage getCurrentPage(){
+    public WizardView.WizardPage getCurrentPage(){
         return _wizardView.getCurrentPage();
     }
 
@@ -55,15 +54,13 @@ public class SetUpWizardFragment extends Fragment implements WizardView.Listener
 
     void initWizardView(ViewGroup rootView){
         _wizardView = rootView.findViewById(R.id.set_up_wizard_view);
-        List<WizardPage> pages = new ArrayList<>();
+        List<WizardView.WizardPage> pages = new ArrayList<>();
         pages.add(new IntroPart1WizardPage());
         pages.add(new IntroPart2WizardPage());
         pages.add(new IntroPart3WizardPage());
         pages.add(new EnterPhoneNumberWizardPage());
         pages.add(new EnterVerificationCodeWizardPage());
-        SetProfilePictureWizardPage setProfilePictureWizardPage = new SetProfilePictureWizardPage();
-        setProfilePictureWizardPage.removeButton(WizardView.NavButtonType.BACK);
-        pages.add(setProfilePictureWizardPage);
+        pages.add(new SetProfilePictureWizardPage());
         pages.add(new ProfileReadyWizardPage());
         _wizardView.setPages(pages);
         _wizardView.setListener(this);

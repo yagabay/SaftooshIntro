@@ -1,7 +1,10 @@
 package com.vismus.saftooshintro.WizardView;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -13,26 +16,29 @@ import com.vismus.saftooshintro.R;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
 
 public class WizardView extends LinearLayout {
 
-    public enum NavButtonType {
-        BACK,
-        NEXT
-    }
-
     // views
     WizardViewPager _wizardViewPager;
-    WizardViewPagerAdapter _wizardViewPagerAdapter;
     Button _btnBack;
     Button _btnNext;
+
+    WizardViewPagerAdapter _wizardViewPagerAdapter;
+    boolean _showBackButton;
 
     Listener _listener;
 
     public WizardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.wizard_view, this);
+        TypedArray array = context.getTheme().obtainStyledAttributes(attrs, R.styleable.com_vismus_appy_WizardView, 0, 0);
+        try{
+            _showBackButton = array.getBoolean(R.styleable.com_vismus_appy_WizardView_showBackButton, true);
+        }
+        finally{
+            array.recycle();
+        }
         initViews(context);
     }
 
@@ -41,6 +47,9 @@ public class WizardView extends LinearLayout {
     }
 
     public void setPages(List<WizardPage> pages) {
+        for(WizardPage page : pages){
+            page._container = this;
+        }
         _wizardViewPagerAdapter.setItems(pages);
         _wizardViewPagerAdapter.notifyDataSetChanged();
         updateButtons();
@@ -91,20 +100,25 @@ public class WizardView extends LinearLayout {
     }
 
     void back() {
-        int currentItem = _wizardViewPager.getCurrentItem();
-        assert (currentItem != 0);
-        _wizardViewPager.setCurrentItem(currentItem - 1);
+        int currPageIndex = _wizardViewPager.getCurrentItem();
+        if(currPageIndex == 0) {
+            return;
+        }
+        _wizardViewPagerAdapter.getItem(currPageIndex - 1).init(null);
+        _wizardViewPager.setCurrentItem(currPageIndex - 1);
         updateButtons();
     }
 
     void next() {
         int currPageIndex = _wizardViewPager.getCurrentItem();
-        assert (currPageIndex != _wizardViewPagerAdapter.getCount() - 1);
+        if(currPageIndex == _wizardViewPagerAdapter.getCount() - 1){
+            return;
+        }
         WizardPage currPage = _wizardViewPagerAdapter.getItem(currPageIndex);
         WizardPage nextPage = _wizardViewPagerAdapter.getItem(currPageIndex + 1);
-        Bundle currPageOutput = currPage.term();
-        if(currPageOutput != null) {
-            nextPage.init(currPageOutput);
+        Bundle currPageData = currPage.term();
+        if(currPageData != null) {
+            nextPage.init(currPageData);
             _wizardViewPager.setCurrentItem(currPageIndex + 1);
             updateButtons();
         }
@@ -117,10 +131,10 @@ public class WizardView extends LinearLayout {
     }
 
     void updateButtons() {
-        WizardPage currPage = getCurrentPage();
+        int currPageIndex = _wizardViewPager.getCurrentItem();
 
-        // button BACK
-        if (currPage.isButtonExist(NavButtonType.BACK) && _wizardViewPager.getCurrentItem() != 0) {
+        // BACK button
+        if (_showBackButton && currPageIndex != 0) {
             _btnBack.setVisibility(VISIBLE);
             _btnBack.setOnClickListener(new OnBackButtonClickListener());
         } else {
@@ -128,15 +142,36 @@ public class WizardView extends LinearLayout {
             _btnBack.setOnClickListener(null);
         }
 
-        // button NEXT/FINISH
-        if (currPage.isButtonExist(NavButtonType.NEXT)) {
-            _btnNext.setVisibility(VISIBLE);
-            boolean isLastPage = (_wizardViewPager.getCurrentItem() == _wizardViewPagerAdapter.getCount() - 1);
-            _btnNext.setText(!isLastPage ? "NEXT" : "FINISH");
-            _btnNext.setOnClickListener(!isLastPage ? new OnNextButtonClickListener() : new OnFinishButtonClickListener());
-        } else {
-            _btnNext.setVisibility(INVISIBLE);
-            _btnBack.setOnClickListener(null);
+        // NEXT button
+        if(currPageIndex != _wizardViewPagerAdapter.getCount() - 1) {
+            _btnNext.setText("NEXT");
+            _btnNext.setOnClickListener(new OnNextButtonClickListener());
+        }
+        else {
+            _btnNext.setText("FINISH");
+            _btnNext.setOnClickListener(new OnFinishButtonClickListener());
         }
     }
+
+    public static abstract class WizardPage extends Fragment {
+
+        protected WizardView _container;
+
+        /* override to pass input data to page */
+        public void init(Bundle data){}
+
+        /* override to receive output data from page */
+        public Bundle term(){
+            return new Bundle();
+        }
+
+        protected void setNextButtonEnabled(boolean enabled){
+            _container._btnNext.setEnabled(enabled);
+        }
+
+        protected void back(){
+            _container.back();
+        }
+    }
+
 }

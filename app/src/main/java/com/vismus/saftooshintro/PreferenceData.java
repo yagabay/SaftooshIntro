@@ -24,7 +24,7 @@ public class PreferenceData {
 
     /* isSignedIn */
 
-    public void setIsSignedIn(boolean value){
+    public void setSignedIn(boolean value){
         _sharedPrefsEditor.putBoolean("isSignedIn", value);
         _sharedPrefsEditor.commit();
     }

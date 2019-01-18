@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1013740289739",
+    "firebase_url": "https://saftooshintro.firebaseio.com",
+    "project_id": "saftooshintro",
+    "storage_bucket": "saftooshintro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013740289739:android:9b8f8f6161e6c5a4",
+        "android_client_info": {
+          "package_name": "com.vismus.saftooshintro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013740289739-edbst6o5auiarisdj08g8ssp3b8po7qh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vismus.saftooshintro",
+            "certificate_hash": "fd8af27572bceddd08e843877fe6942b00505a65"
+          }
+        },
+        {
+          "client_id": "1013740289739-7dc7jkihq9tqbho2ejkfihrnnbjelk7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH5p7FbD78QFzuh8NIVS9Sb8MloRB4QmU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013740289739-7dc7jkihq9tqbho2ejkfihrnnbjelk7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

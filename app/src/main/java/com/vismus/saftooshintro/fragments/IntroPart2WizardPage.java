@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vismus.saftooshintro.R;
-import com.vismus.saftooshintro.WizardView.WizardPage;
+import com.vismus.saftooshintro.WizardView.WizardView;
 
-public class IntroPart2WizardPage extends WizardPage {
+public class IntroPart2WizardPage extends WizardView.WizardPage {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

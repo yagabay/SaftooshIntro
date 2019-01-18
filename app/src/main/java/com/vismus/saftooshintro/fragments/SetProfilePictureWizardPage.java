@@ -13,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.vismus.saftooshintro.R;
-import com.vismus.saftooshintro.WizardView.WizardPage;
+import com.vismus.saftooshintro.WizardView.WizardView;
 
 import java.io.FileNotFoundException;
 
-public class SetProfilePictureWizardPage extends WizardPage{
+public class SetProfilePictureWizardPage extends WizardView.WizardPage {
 
     public static final int PICK_IMAGE = 1;
 

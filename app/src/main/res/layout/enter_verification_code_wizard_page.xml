@@ -10,8 +10,8 @@
         android:layout_centerInParent="true">
 
         <TextView
-            android:id="@+id/txv_instruct_1"
-            android:text="We sent you"
+            android:id="@+id/txv_we_sent_ver_code"
+            android:text="We sent a verification code"
             android:textSize="25dp"
             android:textColor="#000000"
             android:textStyle="bold"
@@ -21,25 +21,26 @@
             android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:id="@+id/txv_instruct_2"
-            android:text="a verification code"
+            android:id="@+id/txv_to_phone_num"
+            android:text="to phone number"
             android:textSize="25dp"
             android:textColor="#000000"
             android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txv_we_sent_ver_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/txv_phone_num"
+            android:textSize="20dp"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/txv_instruct_1"
-            android:layout_centerHorizontal="true"/>
-
-        <TextView
-            android:id="@+id/txv_instruct_3"
-            android:text="Please enter it here"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/txv_instruct_2"
+            android:layout_below="@id/txv_to_phone_num"
             android:layout_centerHorizontal="true"/>
 
         <EditText
@@ -54,7 +55,7 @@
             android:inputType="number"
             android:background="@drawable/rounded_edit_text"
             android:padding="5dip"
-            android:layout_below="@id/txv_instruct_3"
+            android:layout_below="@id/txv_phone_num"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"/>
 
@@ -66,6 +67,16 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/edt_verification_code"
             android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btn_change_phone_num"
+            android:text="CHANGE PHONE NUMBER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btn_send_again"
+            android:layout_marginTop="10dp" />
+
 
     </RelativeLayout>
 

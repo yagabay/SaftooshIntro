@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements SplashFragment.Li
         setContentView(R.layout.activity_main);
         _layMain = findViewById(R.id.lay_main);
         _prefData = PreferenceData.getInstance(this);
-        _prefData.setIsSignedIn(false); // for debugging
+        _prefData.setSignedIn(false); // for debugging
         showSplash();
     }
 
